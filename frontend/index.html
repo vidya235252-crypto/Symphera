@@ -3,47 +3,274 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Symphera</title>
+  <meta name="theme-color" content="#fbf8f5">
+
+  <title>Symphera — Your Health, Your Language</title>
+  <meta
+    name="description"
+    content="Describe how you feel in your own language and get clear health guidance, possible patterns, and practical next steps."
+  >
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans+Kannada:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  >
+
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
   <main>
-    <header>
-      <h1>Symphera</h1>
-      <p data-i18n="tagline">Describe how you feel in your own language. Get clear next steps, not a diagnosis.</p>
-      <div class="langs" role="group" aria-label="Language">
-        <button type="button" data-lang="en" aria-pressed="true">English</button>
-        <button type="button" data-lang="hi" aria-pressed="false">हिन्दी</button>
-        <button type="button" data-lang="kn" aria-pressed="false">ಕನ್ನಡ</button>
+    <header class="site-header">
+      <div class="brand">
+        <div class="brand-icon" aria-hidden="true">
+          <svg viewBox="0 0 48 48" fill="none">
+            <path
+              d="M24 39S7 28 7 17.5C7 7 20 5 24 15c4-10 17-8 17 2.5C41 28 24 39 24 39Z"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M11 23h8l4-7 5 14 4-7h5"
+              stroke="currentColor"
+              stroke-width="3"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+
+        <div class="brand-copy">
+          <h1>Symphera</h1>
+          <p class="brand-tagline">Your health, your language.</p>
+        </div>
+
+        <div class="trust-mark" title="Supportive, health-focused guidance">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path
+              d="M12 3 20 6v5c0 5-3.4 8.5-8 10-4.6-1.5-8-5-8-10V6l8-3Z"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+            />
+            <path
+              d="m9 12 2 2 4-4"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
       </div>
     </header>
 
-    <section class="input">
-      <label for="symptoms" data-i18n="label">How are you feeling?</label>
-      <textarea id="symptoms" rows="5" maxlength="2000" data-i18n-placeholder="placeholder"></textarea>
-      <div class="actions">
-        <button type="button" id="mic" hidden data-i18n="mic">Speak</button>
-        <button type="button" id="analyze" class="primary" data-i18n="analyze">Understand my symptoms</button>
+    <section class="welcome" aria-labelledby="welcome-title">
+      <div class="welcome-copy">
+        <p class="eyebrow">A LITTLE MORE CLARITY, A LITTLE MORE CARE</p>
+
+        <h2 id="welcome-title">
+          Let's understand how you're feeling.
+        </h2>
+
+        <p class="welcome-description">
+          Share what's been happening. Start wherever feels comfortable.
+        </p>
+
+        <div class="langs" role="group" aria-label="Choose your language">
+          <button type="button" data-lang="en" aria-pressed="true">
+            English
+          </button>
+          <button type="button" data-lang="hi" aria-pressed="false">
+            हिन्दी
+          </button>
+          <button type="button" data-lang="kn" aria-pressed="false">
+            ಕನ್ನಡ
+          </button>
+        </div>
       </div>
+
+      <div class="hero-art">
+        <img
+          src="images/symphera-hero.png"
+          alt="A calming illustration representing women's wellbeing and self-care"
+          width="420"
+          height="420"
+          fetchpriority="high"
+        >
+      </div>
+    </section>
+
+    <section class="symptom-starters" aria-labelledby="starter-title">
+      <h2 id="starter-title" class="section-heading">
+        Not sure where to start?
+      </h2>
+
+      <p class="section-description">
+        Choose a topic to help describe what's on your mind.
+      </p>
+
+      <div class="symptom-chips" role="group" aria-label="Symptom topics">
+        <button type="button" class="symptom-chip" data-topic="cycle">
+          <span class="chip-icon" aria-hidden="true">◷</span>
+          <span>Cycle changes</span>
+        </button>
+
+        <button type="button" class="symptom-chip" data-topic="skin">
+          <span class="chip-icon" aria-hidden="true">✧</span>
+          <span>Skin &amp; hair</span>
+        </button>
+
+        <button type="button" class="symptom-chip" data-topic="pain">
+          <span class="chip-icon" aria-hidden="true">♡</span>
+          <span>Pain or discomfort</span>
+        </button>
+
+        <button type="button" class="symptom-chip" data-topic="mood">
+          <span class="chip-icon" aria-hidden="true">☼</span>
+          <span>Mood &amp; energy</span>
+        </button>
+      </div>
+    </section>
+
+    <section class="input" aria-labelledby="symptom-label">
+      <div class="input-heading">
+        <span class="input-heading-icon" aria-hidden="true">✧</span>
+        <div>
+          <h2 id="symptom-label" data-i18n="label">
+            How are you feeling?
+          </h2>
+          <p class="input-subtitle">
+            Your words matter. Share as much or as little as you like.
+          </p>
+        </div>
+      </div>
+
+      <label class="visually-hidden" for="symptoms" data-i18n="label">
+        How are you feeling?
+      </label>
+
+      <textarea
+        id="symptoms"
+        rows="5"
+        maxlength="2000"
+        data-i18n-placeholder="placeholder"
+        placeholder="e.g. My periods come every 2 months and I am gaining weight"
+        aria-describedby="input-hint character-count"
+      ></textarea>
+
+      <div class="input-meta">
+        <p id="input-hint" class="muted">
+          <span aria-hidden="true">🎙</span>
+          <span>Voice or text · English, Hindi or Kannada</span>
+        </p>
+
+        <p id="character-count" class="character-count" aria-live="polite">
+          0 / 2000
+        </p>
+      </div>
+
+      <div class="actions">
+        <button type="button" id="mic" hidden data-i18n="mic">
+          Speak
+        </button>
+
+        <button
+          type="button"
+          id="analyze"
+          class="primary"
+          data-i18n="analyze"
+        >
+          <span data-i18n="analyze">Understand my symptoms</span>
+          <span class="button-arrow" aria-hidden="true">→</span>
+        </button>
+      </div>
+
       <p id="mic-status" class="muted" aria-live="polite"></p>
+
+      <p class="privacy-note">
+        <span aria-hidden="true">♡</span>
+        Private health guidance · Not a diagnosis
+      </p>
     </section>
 
     <div id="status" role="status" aria-live="polite"></div>
-    <section id="results" hidden></section>
 
-    <p id="disclaimer" class="disclaimer" data-i18n="disclaimer">This tool gives general information, not a diagnosis. Please consult a doctor.</p>
+    <section id="results" aria-live="polite" aria-label="Your health guidance" hidden></section>
 
-    <footer hidden>
-  <label class="muted"><input type="checkbox" id="use-mock"> <span data-i18n="mock">Use demo data</span></label>
-</footer>
+    <aside class="disclaimer" id="disclaimer">
+      <span class="disclaimer-icon" aria-hidden="true">ⓘ</span>
+      <p data-i18n="disclaimer">
+        This tool gives general information, not a diagnosis. Please consult a doctor.
+      </p>
+    </aside>
+
+    <footer class="site-footer">
+      <p>Made with care, for clearer conversations about your health.</p>
+      <p class="footer-note">Symphera provides general health information, not a substitute for professional medical care.</p>
+
+      <label class="demo-toggle" hidden>
+        <input type="checkbox" id="use-mock">
+        <span data-i18n="mock">Use demo data</span>
+      </label>
+    </footer>
   </main>
 
   <script src="i18n.js"></script>
   <script src="mock.js"></script>
   <script src="app.js"></script>
-   <script src="voice.js"></script>
+  <script src="voice.js"></script>
+
+  <script>
+    // Update the character counter without changing symptom-analysis behavior.
+    (() => {
+      const textarea = document.getElementById("symptoms");
+      const counter = document.getElementById("character-count");
+
+      if (textarea && counter) {
+        const updateCount = () => {
+          counter.textContent = `${textarea.value.length} / 2000`;
+        };
+
+        textarea.addEventListener("input", updateCount);
+        updateCount();
+      }
+
+      // Starter chips help users begin writing; they do not diagnose.
+      const topics = {
+        cycle: "I've noticed changes in my menstrual cycle. ",
+        skin: "I've noticed changes in my skin or hair. ",
+        pain: "I've been experiencing pain or discomfort. ",
+        mood: "I've noticed changes in my mood or energy levels. "
+      };
+
+      document.querySelectorAll("[data-topic]").forEach((chip) => {
+        chip.addEventListener("click", () => {
+          if (!textarea) return;
+
+          const topic = topics[chip.dataset.topic];
+          if (!topic) return;
+
+          if (!textarea.value.trim()) {
+            textarea.value = topic;
+          } else if (!textarea.value.includes(topic.trim())) {
+            textarea.value = `${textarea.value.trim()} ${topic}`;
+          }
+
+          textarea.dispatchEvent(new Event("input", { bubbles: true }));
+          textarea.focus();
+          textarea.setSelectionRange(
+            textarea.value.length,
+            textarea.value.length
+          );
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
