@@ -19,3 +19,8 @@ def health():
 @app.post("/analyze", response_model=AnalyzeResponse)
 def analyze(req: AnalyzeRequest):
     return pipeline.run(req.text, req.language_hint)
+
+from pathlib import Path
+from fastapi.staticfiles import StaticFiles
+
+app.mount("/", StaticFiles(directory=Path(__file__).resolve().parent.parent / "frontend", html=True), name="frontend")
