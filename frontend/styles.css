@@ -1,0 +1,125 @@
+:root {
+  --ink: #241833;
+  --plum: #4a2370;
+  --saffron: #f2b04a;
+  --bg: #faf6fb;
+  --card: #ffffff;
+  --line: #e4d9ee;
+  --muted: #6b5d7a;
+  --red: #b42318;
+  --red-bg: #fef0ee;
+  --amber: #8a5a00;
+  --amber-bg: #fff5dd;
+  --green: #1d6b45;
+  --green-bg: #e8f6ee;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.55 'Noto Sans', 'Noto Sans Devanagari', 'Noto Sans Kannada', system-ui, sans-serif;
+}
+
+main {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 20px 16px 40px;
+}
+
+h1 { margin: 0; font-size: 2rem; color: var(--plum); letter-spacing: -0.01em; }
+h2 { margin: 0 0 8px; font-size: 1rem; color: var(--plum); }
+header p { margin: 4px 0 16px; max-width: 42ch; }
+
+/* Language selector */
+.langs { display: flex; gap: 8px; margin-bottom: 20px; }
+.langs button { flex: 1; }
+.langs button[aria-pressed="true"] { background: var(--plum); color: #fff; }
+
+/* Input */
+label { display: block; margin-bottom: 6px; font-weight: 600; }
+textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid var(--line);
+  border-radius: 12px;
+  background: #fff;
+  font: inherit;
+  resize: vertical;
+}
+.actions { display: flex; gap: 10px; margin-top: 10px; }
+.muted { margin: 6px 0 0; color: var(--muted); font-size: 0.875rem; }
+
+/* Buttons: 48px tall for easy phone taps */
+button {
+  min-height: 48px;
+  padding: 0 16px;
+  border: 1.5px solid var(--plum);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--plum);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+button.primary { flex: 1; background: var(--plum); color: #fff; }
+button:disabled { opacity: 0.6; cursor: not-allowed; }
+#mic.listening { background: var(--red); border-color: var(--red); color: #fff; }
+
+textarea:focus-visible,
+button:focus-visible,
+input:focus-visible { outline: 3px solid var(--saffron); outline-offset: 2px; }
+
+/* Loading and error messages */
+#status { margin: 16px 0; font-weight: 600; color: var(--plum); }
+#status.error { color: var(--red); }
+
+/* Urgent banner: the first thing inside #results */
+.banner {
+  margin-bottom: 14px;
+  padding: 14px 16px;
+  border-radius: 14px;
+  background: var(--red);
+  color: #fff;
+}
+.banner h2 { margin: 0; color: #fff; font-size: 1.1rem; }
+.banner ul { margin: 6px 0 0; padding-left: 20px; }
+
+/* Result cards */
+.card {
+  margin-bottom: 12px;
+  padding: 14px 16px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+}
+.card p { margin: 0 0 4px; }
+.card ul { margin: 0; padding-left: 20px; }
+.card li { margin: 4px 0; }
+.card .note { color: #5d4f6c; font-size: 0.9rem; }
+
+/* Urgency pill */
+.pill { display: inline-block; padding: 2px 12px; border-radius: 999px; font-size: 0.9rem; font-weight: 700; }
+.pill.routine { background: var(--green-bg); color: var(--green); }
+.pill.soon { background: var(--amber-bg); color: var(--amber); }
+.pill.urgent { background: var(--red-bg); color: var(--red); }
+
+/* Disclaimer: always visible */
+.disclaimer {
+  margin-top: 16px;
+  padding: 6px 12px;
+  background: #fff;
+  border-left: 4px solid var(--saffron);
+  font-size: 0.9rem;
+}
+
+footer label { display: flex; gap: 6px; align-items: center; margin-top: 24px; font-weight: 400; }
+
+/* Print: only the results and disclaimer, for the doctor summary */
+@media print {
+  body { background: #fff; }
+  .input, .langs, footer, #status, header p, #mic, #analyze { display: none; }
+  .card, .banner { break-inside: avoid; }
+}
