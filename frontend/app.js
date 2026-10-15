@@ -7,8 +7,17 @@ const els = {
 };
 
 // Demo toggle stays hidden from jurors. Open the site with ?demo to show it.
-if (new URLSearchParams(location.search).has('demo')) {
-  document.querySelector('footer').hidden = false;
+if (new URLSearchParams(window.location.search).has("demo")) {
+  const demoToggle = document.querySelector(".demo-toggle");
+  const footer = document.querySelector("footer");
+
+  if (demoToggle) {
+    demoToggle.hidden = false;
+  }
+
+  if (footer) {
+    footer.hidden = false;
+  }
 }
 
 let lastResult = null;

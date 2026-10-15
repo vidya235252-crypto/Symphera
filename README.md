@@ -23,37 +23,54 @@ Symphera is a multilingual women's-health guidance tool that helps users describ
 - **AI:** Groq API
 - **Deployment:** Render
 
-## Run locally
+## Run Locally
 
-```bash
-git clone https://github.com/vidya235252-crypto/Symphera.git
-cd Symphera
-```
+### Prerequisites
+- Python 3.10 or newer
+- Git
 
-Create and activate a virtual environment, then install the dependencies listed in the repository.
+### 1. Clone the repository
 
-**Windows PowerShell**
-```powershell
-py -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
-```
+git clone https://github.com/vidya235252-crypto/Sympher.git
+cd Sympher
 
-**macOS/Linux**
-```bash
+### 2. Create and activate a virtual environment
+
+**Windows:**
+
+python -m venv .venv
+.venv\Scripts\activate
+
+**macOS/Linux:**
+
 python3 -m venv .venv
 source .venv/bin/activate
+
+### 3. Install backend dependencies
+
+cd backend
 pip install -r requirements.txt
-```
 
-Configure the environment variables required by the backend (including your Groq API key). Never commit secrets to GitHub. Start the FastAPI app using the entry point and command defined in the repository, then open http://localhost:8000.
+### 4. Configure environment variables
 
-## API
+Create a '.env' file inside the `backend/` directory using `.env.example` as a reference. Add your LLM API key and the required model configuration.
 
-| Endpoint | Purpose |
-|---|---|
-| `GET /health` | Service health check |
-| `POST /analyze` | Analyze a symptom description and return guidance |
+Never commit your `.env` file or expose API keys in frontend code.
+
+### 5. Start the application
+
+From the `backend/` directory, run:
+
+uvicorn main:app --reload
+
+Open `http://127.0.0.1:8000` in your browser.
+
+### API endpoints
+- `GET /health` — health check
+- `POST /analyze` — symptom analysis
+
+For the demo interface, try `http://127.0.0.1:8000/?demo`.
+
 
 ## Responsible use
 

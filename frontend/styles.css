@@ -249,13 +249,13 @@ p {
   font-size: 0.92rem;
 }
 
-.topic-chips {
+.symptom-chips {
   display: flex;
   flex-wrap: wrap;
   gap: 9px;
 }
 
-.topic-chip {
+.symptom-chip {
   display: inline-flex;
   min-height: 42px;
   align-items: center;
