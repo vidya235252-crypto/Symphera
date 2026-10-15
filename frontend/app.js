@@ -83,10 +83,12 @@ function render(d) {
   }
 
   if (d.fallback) {
-    els.results.append(makeCard(t('h_summary'), make('p', '', t('fallback'))));
-  } else if (d.summary) {
-    els.results.append(makeCard(t('h_summary'), make('p', '', d.summary)));
-  }
+  els.results.append(
+    makeCard(t('h_summary'), make('p', '', d.summary || t('fallback')))
+  );
+} else if (d.summary) {
+  els.results.append(makeCard(t('h_summary'), make('p', '', d.summary)));
+}
 
   if ((d.possible_patterns || []).length) {
     const card = makeCard(t('h_patterns'));

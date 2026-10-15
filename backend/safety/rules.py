@@ -29,6 +29,12 @@ class RuleResult:
 def pre_check(text: str) -> RuleResult:
     urgent_terms, crisis_terms = _load()
     norm = re.sub(r"\s+", " ", text.lower())
-    hits = [t for t in urgent_terms if t in norm]
-    crisis = any(t in norm for t in crisis_terms)
-    return RuleResult(urgent=bool(hits) or crisis, crisis=crisis, matched=hits)
+
+    hits = [term for term in urgent_terms if term in norm]
+    crisis = any(term in norm for term in crisis_terms)
+
+    return RuleResult(
+        urgent=bool(hits) or crisis,
+        crisis=crisis,
+        matched=hits,
+    )
