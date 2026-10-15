@@ -1,6 +1,9 @@
+from pathlib import Path
+
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 load_dotenv()
 
@@ -20,7 +23,7 @@ def health():
 def analyze(req: AnalyzeRequest):
     return pipeline.run(req.text, req.language_hint)
 
-from pathlib import Path
-from fastapi.staticfiles import StaticFiles
 
-app.mount("/", StaticFiles(directory=Path(__file__).resolve().parent.parent / "frontend", html=True), name="frontend")
+# Must stay LAST: it matches every path, so anything registered after it would never be reached.
+FRONTEND_DIR = Path(__file__).resolve().parent.parent / "frontend"
+app.mount("/", StaticFiles(directory=FRONTEND_DIR, html=True), name="frontend")
