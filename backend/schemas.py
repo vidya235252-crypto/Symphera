@@ -22,11 +22,12 @@ class Source(BaseModel):
 class AnalyzeResponse(BaseModel):
     detected_language: str
     summary: str
-    possible_patterns: list[Pattern] = []
-    red_flags: list[str] = []
+    possible_patterns: list[Pattern] = Field(default_factory=list)
+    red_flags: list[str] = Field(default_factory=list)
     urgency: Literal["routine", "soon", "urgent"] = "routine"
-    suggested_specialist: str = "gynecologist"
-    questions_for_doctor: list[str] = []
-    what_to_track: list[str] = []
+    suggested_specialist: str = "general physician"
+    questions_for_doctor: list[str] = Field(default_factory=list)
+    what_to_track: list[str] = Field(default_factory=list)
     disclaimer: str = ""
     sources: list[Source] = []  # filled in code from model-returned IDs
+    fallback: bool = False
