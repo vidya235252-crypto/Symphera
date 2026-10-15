@@ -1,0 +1,8 @@
+{
+  "_note": "Person C extends this. Lowercase substrings matched anywhere in the input. Keep terms specific to avoid false alarms. 'crisis' terms trigger the suicide/self-harm response (helpline), not the hospital message.",
+  "en": ["very heavy bleeding", "soaking a pad", "soaking through", "severe pain", "unbearable pain", "fainted", "fainting", "passed out", "chest pain", "can't breathe", "cannot breathe", "pregnant and bleeding", "pregnant and pain"],
+  "hi": ["बहुत ज्यादा ब्लीडिंग", "बहुत ज़्यादा ब्लीडिंग", "तेज दर्द", "तेज़ दर्द", "असहनीय दर्द", "बेहोश", "चक्कर खाकर गिर", "सांस नहीं आ", "सीने में दर्द"],
+  "kn": ["ತುಂಬಾ ರಕ್ತಸ್ರಾವ", "ತೀವ್ರ ನೋವು", "ಸಹಿಸಲಾಗದ ನೋವು", "ಮೂರ್ಛೆ", "ಪ್ರಜ್ಞೆ ತಪ್ಪ", "ಉಸಿರಾಡಲು ಆಗ", "ಎದೆ ನೋವು"],
+  "hinglish": ["bahut zyada bleeding", "bohot bleeding", "bahut tez dard", "bohot dard", "behosh", "chakkar aakar gir", "saans nahi", "seene mein dard"],
+  "crisis": ["kill myself", "want to die", "end my life", "suicide", "suicidal", "don't want to live", "do not want to live", "मरना चाह", "आत्महत्या", "जीना नहीं चाह", "जान दे दू", "ಸಾಯಬೇಕು", "ಆತ್ಮಹತ್ಯೆ", "ಬದುಕಲು ಇಷ್ಟವಿಲ್ಲ", "marna chah", "jeena nahi chah", "jaan de dun", "mar jana chah"]
+}
