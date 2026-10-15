@@ -6,6 +6,11 @@ const els = {
   mock: document.getElementById('use-mock')
 };
 
+// Demo toggle stays hidden from jurors. Open the site with ?demo to show it.
+if (new URLSearchParams(location.search).has('demo')) {
+  document.querySelector('footer').hidden = false;
+}
+
 let lastResult = null;
 let busy = false;
 
@@ -128,7 +133,7 @@ function render(d) {
 async function submit() {
   if (busy) return;
   const text = els.text.value.trim();
-  if (!text) {
+    if (text.length < 3) {
     setStatus(t('empty'), true);
     return;
   }
