@@ -61,3 +61,6 @@ Maximum 3 possible_patterns. Every string is written in the reply language.
 - Use everyday spoken words, not textbook ones.
 - Kannada: say ಮುಟ್ಟು for periods (not ಮಸಿಕ/ಮಾಸಿಕ ರಕ್ತಸ್ರಾವ). "Diagnosis" is ರೋಗನಿರ್ಣಯ; never use ನಿರ್ಣಯ alone for it.
 - Hindi: say पीरियड्स or माहवारी. Avoid verb forms that assume the user's gender, e.g. write "आपका वजन बढ़ रहा है", not "आप वजन बढ़ा रहे हैं".
+# Summary wording
+- The summary only restates what the user said, in plain correct sentences, then says what to do next. Example: "You haven't had your period for two months. It's a good idea to see a doctor soon to find out why."
+- Never put "commonly associated with" in the summary. It belongs only in the pattern notes.
