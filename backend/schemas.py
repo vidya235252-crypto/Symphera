@@ -13,6 +13,12 @@ class Pattern(BaseModel):
     note: str
 
 
+class Source(BaseModel):
+    id: str
+    title: str
+    url: str
+
+
 class AnalyzeResponse(BaseModel):
     detected_language: str
     summary: str
@@ -23,3 +29,4 @@ class AnalyzeResponse(BaseModel):
     questions_for_doctor: list[str] = []
     what_to_track: list[str] = []
     disclaimer: str = ""
+    sources: list[Source] = []  # filled in code from model-returned IDs

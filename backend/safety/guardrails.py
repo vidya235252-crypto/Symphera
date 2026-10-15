@@ -50,6 +50,9 @@ def apply(resp: AnalyzeResponse, rules: RuleResult) -> AnalyzeResponse:
         elif URGENT_MSG[lang] not in resp.summary:
             resp.summary = f"{URGENT_MSG[lang]} {resp.summary}"
 
+    if rules.crisis or not resp.possible_patterns:
+        resp.sources = []  # nothing to cite, or the wrong place for citations
+
     if not resp.disclaimer.strip():
         resp.disclaimer = DISCLAIMERS[lang]
     return resp

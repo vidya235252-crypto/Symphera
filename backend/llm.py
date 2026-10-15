@@ -11,7 +11,11 @@ class LLMError(Exception):
 
 GROQ_URL = "https://api.groq.com/openai/v1/chat/completions"
 MODEL = os.getenv("LLM_MODEL", "llama-3.3-70b-versatile")
-_SYSTEM = (Path(__file__).parent / "prompts" / "system.md").read_text(encoding="utf-8")
+import sources  # noqa: E402
+
+_SYSTEM = (Path(__file__).parent / "prompts" / "system.md").read_text(encoding="utf-8").replace(
+    "{{SOURCES}}", sources.render_for_prompt()
+)
 
 
 def _api_key() -> str:
@@ -21,9 +25,10 @@ def _api_key() -> str:
     return key
 
 
-def _build_user_message(text: str, language_hint: str) -> str:
+def _build_user_message(text: str, language_hint: str, reminder: str = "") -> str:
     safe = re.sub(r"</?\s*user_input\s*>", "", text, flags=re.I)  # no tag breakout
-    return f"language_hint: {language_hint}\n<user_input>\n{safe}\n</user_input>"
+    msg = f"language_hint: {language_hint}\n<user_input>\n{safe}\n</user_input>"
+    return f"{msg}\n\n{reminder}" if reminder else msg
 
 
 def _call_model(user_message: str) -> str:
@@ -75,5 +80,5 @@ def _parse_json(raw: str) -> dict:
     return obj
 
 
-def analyze(text: str, language_hint: str = "auto") -> dict:
-    return _parse_json(_call_model(_build_user_message(text, language_hint)))
+def analyze(text: str, language_hint: str = "auto", reminder: str = "") -> dict:
+    return _parse_json(_call_model(_build_user_message(text, language_hint, reminder)))
