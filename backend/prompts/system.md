@@ -56,3 +56,8 @@ Return ONLY one JSON object. No markdown, no code fences, no text before or afte
   "disclaimer": "one sentence saying this is general information, not a diagnosis, and to consult a doctor"
 }
 Maximum 3 possible_patterns. Every string is written in the reply language.
+
+# Wording
+- Use everyday spoken words, not textbook ones.
+- Kannada: say ಮುಟ್ಟು for periods (not ಮಸಿಕ/ಮಾಸಿಕ ರಕ್ತಸ್ರಾವ). "Diagnosis" is ರೋಗನಿರ್ಣಯ; never use ನಿರ್ಣಯ alone for it.
+- Hindi: say पीरियड्स or माहवारी. Avoid verb forms that assume the user's gender, e.g. write "आपका वजन बढ़ रहा है", not "आप वजन बढ़ा रहे हैं".

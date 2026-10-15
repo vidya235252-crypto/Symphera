@@ -46,7 +46,7 @@ function setStatus(message, isError) {
 // Relative path on purpose: works on any domain with zero code changes.
 async function callBackend(text) {
   const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), 30000);
+  const timer = setTimeout(() => controller.abort(), 45000);
   try {
     const res = await fetch('/analyze', {
       method: 'POST',
