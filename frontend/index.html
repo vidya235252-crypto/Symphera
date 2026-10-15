@@ -4,8 +4,45 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Symphera</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&family=Noto+Sans+Kannada:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Symphera is live</h1>
+  <main>
+    <header>
+      <h1>Symphera</h1>
+      <p data-i18n="tagline">Describe how you feel in your own language. Get clear next steps, not a diagnosis.</p>
+      <div class="langs" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">English</button>
+        <button type="button" data-lang="hi" aria-pressed="false">हिन्दी</button>
+        <button type="button" data-lang="kn" aria-pressed="false">ಕನ್ನಡ</button>
+      </div>
+    </header>
+
+    <section class="input">
+      <label for="symptoms" data-i18n="label">How are you feeling?</label>
+      <textarea id="symptoms" rows="5" data-i18n-placeholder="placeholder"></textarea>
+      <div class="actions">
+        <button type="button" id="mic" hidden data-i18n="mic">Speak</button>
+        <button type="button" id="analyze" class="primary" data-i18n="analyze">Understand my symptoms</button>
+      </div>
+      <p id="mic-status" class="muted" aria-live="polite"></p>
+    </section>
+
+    <div id="status" role="status" aria-live="polite"></div>
+    <section id="results" hidden></section>
+
+    <p id="disclaimer" class="disclaimer" data-i18n="disclaimer">This tool gives general information, not a diagnosis. Please consult a doctor.</p>
+
+    <footer>
+      <label class="muted"><input type="checkbox" id="use-mock" checked> <span data-i18n="mock">Use demo data</span></label>
+    </footer>
+  </main>
+
+  <script src="i18n.js"></script>
+  <script src="mock.js"></script>
+  <script src="app.js"></script>
 </body>
 </html>
